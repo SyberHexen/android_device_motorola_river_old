@@ -1,5 +1,5 @@
 #
-# vendor props for payton
+# vendor props for river
 #
 
 # Audio
@@ -14,20 +14,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.sensors=payton \
-    ro.vendor.sensors.maghalcal=false \
+    ro.hardware.sensors=river \
     ro.vendor.sensors.amd=false \
+    ro.vendor.sensors.facing=false \
+    ro.vendor.sensors.mot_detect=true \
+    ro.vendor.sensors.mot_ltv=true \
+    ro.vendor.sensors.pedometer=false \
     ro.vendor.sensors.pmd=false \
     ro.vendor.sensors.rmd=false \
-    ro.vendor.sensors.facing=false \
     ro.vendor.sensors.scrn_ortn=false \
-    ro.vendor.sensors.pedometer=false \
-    ro.vendor.sensors.dev_ori=true \
     ro.vendor.sensors.sta_detect=true \
-    ro.vendor.sensors.mot_detect=true \
-    ro.vendor.sensors.cmc=false \
     ro.vendor.sdk.sensors.gestures=false
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=420
+    ro.sf.lcd_density=440 \

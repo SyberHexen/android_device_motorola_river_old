@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The LineageOS Open Source Project
+# Copyright (C) 2019 The LineageOS Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,12 +17,13 @@
 # Inherit some common Lineage stuff.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Device
-$(call inherit-product, device/motorola/payton/device.mk)
+$(call inherit-product, device/motorola/river/device.mk)
 
 # A/B updater
 AB_OTA_UPDATER := true
@@ -51,30 +52,31 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    bootctrl.sdm660
+    bootctrl.msm8953
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     libcutils \
-    bootctrl.sdm660 \
+    bootctrl.msm8953 \
     libgptutils \
     libz
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-    $(call inherit-product, device/motorola/payton/twrp/twrp.mk)
+    $(call inherit-product, device/motorola/river/twrp/twrp.mk)
 else
-    TARGET_RECOVERY_FSTAB := device/motorola/sdm660-common/rootdir/etc/fstab.qcom
+    TARGET_RECOVERY_FSTAB := device/motorola/msm8953-common/rootdir/etc/fstab.qcom
 endif
 
 # Device identifiers
-PRODUCT_DEVICE := payton
-PRODUCT_NAME := lineage_payton
+PRODUCT_DEVICE := river
+PRODUCT_NAME := lineage_river
 PRODUCT_BRAND := motorola
-PRODUCT_MODEL := Moto X4
-PRODUCT_MANUFACTURER := Motorola
-PRODUCT_RELEASE_NAME := payton
+PRODUCT_MODEL := moto g(7)
+PRODUCT_MANUFACTURER := motorola
+PRODUCT_RELEASE_NAME := river
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-        PRODUCT_NAME=payton
+        PRODUCT_NAME=river
 
-BUILD_FINGERPRINT := motorola/payton/payton:8.0.0/OPWS27.57-25-6-10/12:user/release-keys
+# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
+BUILD_FINGERPRINT := 9/PPOS29.114-16-5-2/6e14b:user/release-keys
