@@ -1,6 +1,6 @@
 # Audio
-etc/permissions/audiosphere.xml
-framework/audiosphere.jar
+# etc/permissions/audiosphere.xml
+# framework/audiosphere.jar
 
 # Bluetooth-AptX
 lib64/libaptXHD_encoder.so
