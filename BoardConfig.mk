@@ -82,4 +82,4 @@ TARGET_USES_LOGD := true
 
 # Installer
 USE_RECOVERY_INSTALLER := true
-RECOVERY_INSTALLER_PATH := device/motorola/evert/installer
+RECOVERY_INSTALLER_PATH := device/motorola/river/installer
